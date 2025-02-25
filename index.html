@@ -53,8 +53,12 @@
         <p>Clicks: <span id="score">0</span></p>
     </div>
     
-    <!-- Adsterra Ad (Replace with actual code) -->
-    <div id="adsterra" style="display:none;">ADSTERAA AD CODE HERE</div>
+    <!-- Adsterra Ad (Popunder Code) -->
+    <script type="text/javascript">
+        var popunder = document.createElement('script');
+        popunder.src = 'https://pl25966024.effectiveratecpm.com/2b/9c/99/2b9c992f67dd0da80dcd018979dcfde0.js'; // Код Popunder от Adsterra
+        document.body.appendChild(popunder);
+    </script>
     
     <script>
         let timeLeft = 15;
@@ -86,13 +90,29 @@
         
         function showAd() {
             adContainer.style.display = "block";
-            setTimeout(() => { adContainer.style.display = "none"; startGame(); }, 5000);
+            setTimeout(() => { 
+                adContainer.style.display = "none"; 
+                showPopunder(); // Показываем popunder
+            }, 5000); // Показать баннерную рекламу на 5 секунд
         }
         
+        function showPopunder() {
+            // Вставляем код popunder
+            var popunder = document.createElement('script');
+            popunder.src = 'https://pl25966024.effectiveratecpm.com/2b/9c/99/2b9c992f67dd0da80dcd018979dcfde0.js'; // Код Popunder от Adsterra
+            document.body.appendChild(popunder);
+            
+            // После показа popunder начинаем новую игру через 15 секунд
+            setTimeout(() => {
+                startGame();
+            }, 15000); // 15 секунд для показа popunder
+        }
+
         startGame();
     </script>
     
-    <!-- PopAds Ad Script (Replace with actual code) -->
+    <!-- Optional PopAds Script (Replace with actual code) -->
     <script> /* POPADS CODE HERE */ </script>
 </body>
 </html>
+
