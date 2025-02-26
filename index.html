@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clicker Game with Ads</title>
     <style>
-        body { 
-            text-align: center; 
+        body {
+            text-align: center;
             font-family: Arial, sans-serif;
             background-color: #121212;
             color: white;
@@ -25,20 +25,18 @@
             width: 300px;
         }
         button {
-            font-size: 18px;
-            padding: 12px;
+            font-size: 16px;
+            padding: 10px;
             cursor: pointer;
             border: none;
+            background: #ff5722;
+            color: white;
             border-radius: 5px;
-            transition: 0.3s;
-            margin: 10px;
-            width: 250px;
+            margin: 5px;
         }
-        .popunder { background: #ff5722; color: white; }
-        .video-ad { background: #4caf50; color: white; }
-        .click-ad { background: #2196f3; color: white; }
-        .stop { background: #f44336; color: white; }
-        button:hover { opacity: 0.8; }
+        button:hover {
+            background: #e64a19;
+        }
     </style>
 </head>
 <body>
@@ -48,62 +46,45 @@
         <p>Time Left: <span id="timer">10</span> sec</p>
         <p>Clicks: <span id="score">0</span></p>
     </div>
-
-    <!-- Кнопки для запуска рекламы -->
-    <button class="popunder" id="popunder">Запустить Popunder</button>
-    <button class="video-ad" id="video">Запустить Видео Рекламу</button>
-    <button class="click-ad" id="click">Запустить Click Ads</button>
-    <button class="stop" id="stop">Остановить рекламу</button>
-
-    <!-- Adsterra Popunder -->
+    
+    <h2>Show Ads</h2>
+    <button onclick="showPopunder()">Show Popunder Ad</button>
+    <button onclick="showBannerAd()">Show Banner Ad</button>
+    <button onclick="showNativeBanner()">Show Native Banner</button>
+    <button onclick="showDirectLink()">Show Direct Link</button>
+    <button onclick="showSocialBar()">Show Social Bar</button>
+    
     <script>
-        document.getElementById("popunder").addEventListener("click", () => {
-            window.open('https://pl25966024.effectiveratecpm.com/2b/9c/99/2b9c992f67dd0da80dcd018979dcfde0.js', '_blank');
-        });
-
-        document.getElementById("video").addEventListener("click", () => {
-            let videoAd = document.createElement('script');
-            videoAd.src = "https://pl25974303.effectiveratecpm.com/1d2a8f1a094905e6dd89b2f492b08675/invoke.js";
-            document.body.appendChild(videoAd);
-        });
-
-        document.getElementById("click").addEventListener("click", () => {
-            window.open("https://example-click-ads.com", "_blank");
-        });
-
-        document.getElementById("stop").addEventListener("click", () => {
-            alert("Реклама остановлена (функционал для расширения)");
-        });
-    </script>
-
-    <!-- Логика игры -->
-    <script>
-        let timeLeft = 10;
-        let score = 0;
-        let gameActive = false;
-        const button = document.getElementById("click-button");
-        const timerDisplay = document.getElementById("timer");
-        const scoreDisplay = document.getElementById("score");
-
-        button.addEventListener("click", () => {
-            if (!gameActive) return;
-            score++;
-            scoreDisplay.textContent = score;
-        });
-
-        function startGame() {
-            gameActive = true;
-            let countdown = setInterval(() => {
-                timeLeft--;
-                timerDisplay.textContent = timeLeft;
-                if (timeLeft <= 0) {
-                    clearInterval(countdown);
-                    gameActive = false;
-                }
-            }, 1000);
+        function showPopunder() {
+            let script = document.createElement('script');
+            script.src = 'https://pl25966024.effectiveratecpm.com/2b/9c/99/2b9c992f67dd0da80dcd018979dcfde0.js';
+            document.body.appendChild(script);
         }
 
-        startGame();
+        function showBannerAd() {
+            let script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = '//www.highperformanceformat.com/6bb4f538062b69117591cbd4d5fb9a37/invoke.js';
+            document.body.appendChild(script);
+        }
+
+        function showNativeBanner() {
+            let script = document.createElement('script');
+            script.async = true;
+            script.dataset.cfasync = 'false';
+            script.src = '//pl25974303.effectiveratecpm.com/1d2a8f1a094905e6dd89b2f492b08675/invoke.js';
+            document.body.appendChild(script);
+        }
+
+        function showDirectLink() {
+            window.open('https://www.effectiveratecpm.com/kw9n5b7e?key=2a3e2a4c8a19cb774af7501158ae4d1f', '_blank');
+        }
+
+        function showSocialBar() {
+            let script = document.createElement('script');
+            script.src = '//pl25974388.effectiveratecpm.com/72/38/11/723811ff2252aaf8c040fe4dba593dd7.js';
+            document.body.appendChild(script);
+        }
     </script>
 </body>
 </html>
