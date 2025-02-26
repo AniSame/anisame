@@ -27,15 +27,12 @@
         button {
             font-size: 16px;
             padding: 10px;
+            margin: 5px;
             cursor: pointer;
             border: none;
             background: #ff5722;
             color: white;
             border-radius: 5px;
-            margin: 5px;
-        }
-        button:hover {
-            background: #e64a19;
         }
     </style>
 </head>
@@ -47,43 +44,51 @@
         <p>Clicks: <span id="score">0</span></p>
     </div>
     
-    <h2>Show Ads</h2>
-    <button onclick="showPopunder()">Show Popunder Ad</button>
-    <button onclick="showBannerAd()">Show Banner Ad</button>
+    <!-- Ad Buttons -->
+    <button onclick="showPopunder()">Show Popunder</button>
+    <button onclick="showBanner()">Show Banner</button>
     <button onclick="showNativeBanner()">Show Native Banner</button>
-    <button onclick="showDirectLink()">Show Direct Link</button>
+    <button onclick="openDirectLink()">Open Direct Link</button>
     <button onclick="showSocialBar()">Show Social Bar</button>
-    
+
+    <!-- Ad Scripts -->
     <script>
         function showPopunder() {
-            let script = document.createElement('script');
-            script.src = 'https://pl25966024.effectiveratecpm.com/2b/9c/99/2b9c992f67dd0da80dcd018979dcfde0.js';
-            document.body.appendChild(script);
+            var popunder = document.createElement('script');
+            popunder.src = '//pl25966024.effectiveratecpm.com/2b/9c/99/2b9c992f67dd0da80dcd018979dcfde0.js';
+            document.body.appendChild(popunder);
         }
 
-        function showBannerAd() {
-            let script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = '//www.highperformanceformat.com/6bb4f538062b69117591cbd4d5fb9a37/invoke.js';
-            document.body.appendChild(script);
+        function showBanner() {
+            var bannerContainer = document.createElement('div');
+            bannerContainer.innerHTML = `<script type="text/javascript">
+                atOptions = {
+                    'key' : '6bb4f538062b69117591cbd4d5fb9a37',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/6bb4f538062b69117591cbd4d5fb9a37/invoke.js"></script>`;
+            document.body.appendChild(bannerContainer);
         }
 
         function showNativeBanner() {
-            let script = document.createElement('script');
-            script.async = true;
-            script.dataset.cfasync = 'false';
-            script.src = '//pl25974303.effectiveratecpm.com/1d2a8f1a094905e6dd89b2f492b08675/invoke.js';
-            document.body.appendChild(script);
+            var nativeContainer = document.createElement('div');
+            nativeContainer.innerHTML = `<script async="async" data-cfasync="false" src="//pl25974303.effectiveratecpm.com/1d2a8f1a094905e6dd89b2f492b08675/invoke.js"></script>
+            <div id="container-1d2a8f1a094905e6dd89b2f492b08675"></div>`;
+            document.body.appendChild(nativeContainer);
         }
 
-        function showDirectLink() {
+        function openDirectLink() {
             window.open('https://www.effectiveratecpm.com/kw9n5b7e?key=2a3e2a4c8a19cb774af7501158ae4d1f', '_blank');
         }
 
         function showSocialBar() {
-            let script = document.createElement('script');
-            script.src = '//pl25974388.effectiveratecpm.com/72/38/11/723811ff2252aaf8c040fe4dba593dd7.js';
-            document.body.appendChild(script);
+            var socialBar = document.createElement('script');
+            socialBar.src = '//pl25974388.effectiveratecpm.com/72/38/11/723811ff2252aaf8c040fe4dba593dd7.js';
+            document.body.appendChild(socialBar);
         }
     </script>
 </body>
