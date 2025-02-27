@@ -121,6 +121,13 @@
     <!-- Social Bar -->
     <script type='text/javascript' src='//pl25974388.effectiveratecpm.com/72/38/11/723811ff2252aaf8c040fe4dba593dd7.js'></script>
     
+
+        watchAdButton.addEventListener("click", () => {
+            let adScript = document.createElement('script');
+            adScript.src = '//pl25974303.effectiveratecpm.com/1d2a8f1a094905e6dd89b2f492b08675/invoke.js'; // Замените на реальный источник видеорекламы
+            document.getElementById("ad-container").appendChild(adScript);
+        });
+
         function showPopunder() {
             var popunder = document.createElement('script');
             popunder.src = 'https://pl25966024.effectiveratecpm.com/2b/9c/99/2b9c992f67dd0da80dcd018979dcfde0.js';
@@ -128,11 +135,7 @@
             setTimeout(startGame, 15000);
         }
 
-        watchAdButton.addEventListener("click", () => {
-            let adScript = document.createElement('script');
-            adScript.src = '//pl25974303.effectiveratecpm.com/1d2a8f1a094905e6dd89b2f492b08675/invoke.js'; // Замените на реальный источник видеорекламы
-            document.getElementById("ad-container").appendChild(adScript);
-        });
+        startGame();
 
         startGame();
     </script>
