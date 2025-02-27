@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,18 +24,28 @@
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
             width: 300px;
         }
-        #click-button {
+        #click-button, #watch-ad-button {
             font-size: 20px;
             padding: 15px 30px;
             cursor: pointer;
             border: none;
-            background: #ff5722;
-            color: white;
             border-radius: 5px;
             transition: background 0.3s;
+            margin-top: 10px;
+        }
+        #click-button {
+            background: #ff5722;
+            color: white;
         }
         #click-button:hover {
             background: #e64a19;
+        }
+        #watch-ad-button {
+            background: #4CAF50;
+            color: white;
+        }
+        #watch-ad-button:hover {
+            background: #45a049;
         }
         #ad-container {
             margin-top: 20px;
@@ -48,33 +58,10 @@
         <button id="click-button">Click Me!</button>
         <p>Time Left: <span id="timer">10</span> sec</p>
         <p>Clicks: <span id="score">0</span></p>
+        <button id="watch-ad-button">Watch Video Ad</button>
     </div>
 
-    <!-- Banner Ad -->
-    <div id="ad-container">
-        <script type="text/javascript">
-            atOptions = {
-                'key' : '6bb4f538062b69117591cbd4d5fb9a37',
-                'format' : 'iframe',
-                'height' : 90,
-                'width' : 728,
-                'params' : {}
-            };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/6bb4f538062b69117591cbd4d5fb9a37/invoke.js"></script>
-    </div>
-
-    <!-- Native Banner -->
-    <div>
-        <script async="async" data-cfasync="false" src="//pl25974303.effectiveratecpm.com/1d2a8f1a094905e6dd89b2f492b08675/invoke.js"></script>
-        <div id="container-1d2a8f1a094905e6dd89b2f492b08675"></div>
-    </div>
-
-    <!-- Direct Link -->
-    <a href="https://www.effectiveratecpm.com/kw9n5b7e?key=2a3e2a4c8a19cb774af7501158ae4d1f" target="_blank">Check this offer</a>
-
-    <!-- Social Bar -->
-    <script type='text/javascript' src='//pl25974388.effectiveratecpm.com/72/38/11/723811ff2252aaf8c040fe4dba593dd7.js'></script>
+    <div id="ad-container"></div>
 
     <script>
         let timeLeft = 10;
@@ -83,7 +70,8 @@
         const button = document.getElementById("click-button");
         const timerDisplay = document.getElementById("timer");
         const scoreDisplay = document.getElementById("score");
-
+        const watchAdButton = document.getElementById("watch-ad-button");
+        
         button.addEventListener("click", () => {
             if (!gameActive) return;
             score++;
@@ -109,6 +97,12 @@
             document.body.appendChild(popunder);
             setTimeout(startGame, 15000);
         }
+
+        watchAdButton.addEventListener("click", () => {
+            let adScript = document.createElement('script');
+            adScript.src = '//pl25974303.effectiveratecpm.com/1d2a8f1a094905e6dd89b2f492b08675/invoke.js'; // Замените на реальный источник видеорекламы
+            document.getElementById("ad-container").appendChild(adScript);
+        });
 
         startGame();
     </script>
